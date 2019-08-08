@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My 1to50</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        #gridLeft {
+            background-color: lightpink;
+        }
+
+        #gridMiddle {
+            background-color: lightblue;
+        }
+
+        #gridRight {
+            background-color: lightgreen;
+        }
+
+        #countTime {
+            /* width: 50px; */
+            /* height: 100px; */
+            /* border: 1px solid red; */
+        }
+
+        #digitNext {
+            /* width: 50px; */
+            /* height: 100px; */
+            /* border: 1px solid red; */
+        }
+
+        #divTableId {
+            /* position: relative;
+            width: 500px;
+            height: 500px;
+
+            border: 2px solid blue; */
+        }
+
+        table {
+            /* table-layout: fixed; */
+            /* table-layout: auto; */
+            /* width: 390px; */
+
+            table-layout: auto;
+
+            /* background-color: red; */
+            /* border: 2px solid grey; */
+
+            /* display: block;
+            margin-right: auto;
+            margin-left: auto; */
+
+            margin: 0 auto;
+
+            /* position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; */
+        }
+
+        td {
+            /* border: 2px solid grey; */
+        }
+
+        .btnMy {
+            width: 55px;
+            height: 55px;
+            font-size: 22px;
+            font-weight: bold;
+            background-color: rgb(50, 97, 167);
+            color: white;
+            /* border: 2px solid grey; */
+            border-radius: 5px;
+        }
+
+        /* col-* */
+        @media only screen and (max-width: 576px) {
+
+            html,
+            body {
+                /* background-color: red;  */
+                height: 100%;
+            }
+
+            #gridLeft {
+                display: none;
+            }
+
+            #gridMiddle {
+                display: block;
+            }
+
+            #gridRight {
+                display: none;
+            }
+
+            #modalHelpId {
+                display: block;
+            }
+
+            #modalScoreId {
+                display: block;
+            }
+
+            .btnMy {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+
+            .fontSizeButton {
+                font-size: 1.0rem
+            }
+
+            .fontSizeTittle {
+                font-size: 1.1rem
+            }
+        }
+
+        /* col-sm-* */
+        @media only screen and (min-width: 576px) {
+
+            html,
+            body {
+                /* background-color: green; */
+                height: 100%;
+            }
+
+            #gridLeft {
+                display: none;
+            }
+
+            #gridMiddle {
+                display: block;
+            }
+
+            #gridRight {
+                display: none;
+            }
+
+            #modalHelpId {
+                display: block;
+            }
+
+            #modalScoreId {
+                display: block;
+            }
+
+            .btnMy {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .fontSizeButton {
+                font-size: 1.0rem
+            }
+
+            .fontSizeTittle {
+                font-size: 1.1rem
+            }
+        }
+
+        /* col-md-* */
+        @media only screen and (min-width: 768px) {
+
+            html,
+            body {
+                /* background-color: blue; */
+                height: 100%;
+            }
+
+            #gridLeft {
+                display: block;
+            }
+
+            #gridMiddle {
+                display: block;
+            }
+
+            #gridRight {
+                display: none;
+            }
+
+            #modalHelpId {
+                display: none;
+            }
+
+            #modalScoreId {
+                display: block;
+            }
+
+            .btnMy {
+                width: 65px;
+                height: 65px;
+                font-size: 26px;
+            }
+
+            .fontSizeButton {
+                font-size: 1.1rem
+            }
+
+            .fontSizeTittle {
+                font-size: 1.2rem
+            }
+        }
+
+        /* col-lg-* */
+        @media only screen and (min-width: 992px) {
+
+            html,
+            body {
+                /* background-color: yellow; */
+                height: 100%;
+            }
+
+            #gridLeft {
+                display: block;
+            }
+
+            #gridMiddle {
+                display: block;
+            }
+
+            #gridRight {
+                display: block;
+            }
+
+            #modalHelpId {
+                display: none;
+            }
+
+            #modalScoreId {
+                display: none;
+            }
+
+            .btnMy {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+
+            .fontSizeButton {
+                font-size: 1.2rem
+            }
+
+            .fontSizeTittle {
+                font-size: 1.3rem
+            }
+        }
+
+        /* col-lg-* */
+        @media only screen and (min-width: 1200px) {
+
+            html,
+            body {
+                /* background-color: brown; */
+                height: 100%;
+            }
+
+            #gridLeft {
+                display: block;
+            }
+
+            #gridMiddle {
+                display: block;
+            }
+
+            #gridRight {
+                display: block;
+            }
+
+            #modalHelpId {
+                display: none;
+            }
+
+            #modalScoreId {
+                display: none;
+            }
+
+            .btnMy {
+                width: 75px;
+                height: 75px;
+                font-size: 30px;
+            }
+
+            .fontSizeButton {
+                font-size: 1.2rem
+            }
+
+            .fontSizeTittle {
+                font-size: 1.3rem
+            }
+        }
+    </style>
+</head>
+
+<body onresize="bodyResizeFun()">
+    <!-- w3c : col-* (< 576px), col-sm-* (576px), col-md-* (768px), col-lg-* (992px), col-xl-* (1200px) -->
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div id="gridLeft" class="col col-sm col-md-4 col-lg-3 col-xl-3">
+                <br>
+                <div class="alert alert-danger">
+                    <span class="font-weight-bolder fontSizeTittle">My 1to50</span>
+                    <i class="fab fa-delicious fontSizeTittle" style="color: red;"></i>
+                    &nbsp;參考&nbsp;
+                    <a style="word-wrap: break-word;" href="http://zzzscore.com/1to50/en/?ts=1564669932023"
+                        target="_blank">
+                        http://zzzscore.com/1to50/en/?ts=1564669932023</a>
+                </div>
+
+                <div class="alert alert-danger">
+                    <p class="font-weight-bolder fontSizeTittle">遊戲說明</p>
+                    這裡有一個 5*5 的表格陣列，會隨機出現 1 到 50 的數字方塊。<br>
+                    請用滑鼠，請從 1 的數字方塊依順序點選到 50 的數字方塊，以測試敏捷度。<br>
+                    當點選 1 的數字方塊，遊戲將開始計時。遊戲結束後，會停止計時，並彈出視窗，顯示總共花費的時間。
+                </div>
+            </div>
+
+            <div id="gridMiddle" class="col col-sm col-md col-lg col-xl">
+                <!-- <p id="p1"></p> -->
+                <br>
+                <div class="alert alert-info">
+                    <!-- <div class="d-flex justify-content-between"> -->
+                    <div class="d-flex justify-content-around fontSizeButton">
+                        <div>
+                            <span class="font-weight-bolder">遊戲時間</span>
+                            <i id="clockId" class="far fa-clock" style="color: red;"></i>
+                            &nbsp;
+                            <span id="countTime" class="font-weight-bolder">0.00</span>
+                            <br>
+                            <span class="font-weight-bolder">下個數字</span>
+                            <i id="numId" class="fab fa-delicious" style="color: red;"></i>
+                            &nbsp;
+                            <span id="digitNext" class="font-weight-bolder">1</span>
+                        </div>
+                        <div class="btn-group">
+                            <div>
+                                <button id="modalHelpId" type="button"
+                                    class="btn btn-danger font-weight-bolder fontSizeButton" data-toggle="modal"
+                                    data-target="#modalHelp">遊戲說明</button>
+                            </div>
+                            <div>
+                                <button id="modalScoreId" type="button"
+                                    class="btn btn-success font-weight-bolder fontSizeButton" data-toggle="modal"
+                                    data-target="#modalScore">歷史成績</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary font-weight-bolder fontSizeButton"
+                                    onclick="restartFun()">重新開始</button>
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <i class="fas fa-bars"></i>
+                        </div> -->
+                    </div>
+
+                    <!-- modal -->
+                    <div class="modal" id="modalHelp">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content" style="background-color: lightpink;">
+                                <div class="modal-header">
+                                    <span class="modal-title text-danger font-weight-bolder fontSizeTittle">遊戲說明</span>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="alert alert-danger">
+                                        <span class="font-weight-bolder fontSizeTittle">My 1to50</span>
+                                        <i class="fab fa-delicious fontSizeTittle" style="color: red;"></i>
+                                        &nbsp;參考&nbsp;
+                                        <a style="word-wrap: break-word;"
+                                            href="http://zzzscore.com/1to50/en/?ts=1564669932023" target="_blank">
+                                            http://zzzscore.com/1to50/en/?ts=1564669932023</a>
+                                    </div>
+
+                                    <div class="alert alert-danger">
+                                        這裡有一個 5*5 的表格陣列，會隨機出現 1 到 50 的數字方塊。<br>
+                                        請用滑鼠，請從 1 的數字方塊依順序點選到 50 的數字方塊，以測試敏捷度。<br>
+                                        當點選 1 的數字方塊，遊戲將開始計時。遊戲結束後，會停止計時，並彈出視窗，顯示總共花費的時間。
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal" id="modalScore">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content" style="background-color: lightgreen;">
+                                <div class="modal-header">
+                                    <span class="modal-title text-success font-weight-bolder fontSizeTittle">歷史成績</span>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="alert alert-success">
+                                        <!-- <ol id="scoreList2">
+                                        </ol> -->
+                                        <table id="scoreTable2" class="table table-striped table-sm">
+
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="modalEnd">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content" style="background-color: lightblue;">
+                                <div class="modal-header">
+                                    <span class="modal-title text-info font-weight-bolder fontSizeTittle">遊戲結束</span>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="alertScore" class="alert alert-info">
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+                </div>
+
+                <div id="divTableId" class="alert alert-info">
+                    <table id="tableId">
+
+                    </table>
+                </div>
+            </div>
+
+            <div id="gridRight" class="col col-sm col-md col-lg-3 col-xl-3">
+                <br>
+                <div class="alert alert-success">
+                    <p class="font-weight-bolder fontSizeTittle">歷史成績</p>
+                    <!-- <ol id="scoreList">
+                    </ol> -->
+                    <table id="scoreTable" class="table table-striped table-sm">
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var digitLast = 50;
+        var timerVal = 10;
+
+        var digitPlace;
+        var digitClick;
+
+        var timerId = null;
+        var timeMs = 0;
+
+        var scoreList = [];
+        var scoreListStr = "";
+
+        bodyResizeFun();
+
+        // test case
+        // localStorage.removeItem("scoreList");
+        // test case
+
+        if (typeof (Storage) !== "undefined") {
+            if (localStorage.getItem("scoreList") != null) {
+                scoreListStr = localStorage.getItem("scoreList");
+                scoreList = JSON.parse(scoreListStr);
+                console.log(scoreListStr);
+                console.log(scoreList);
+                console.log("|||");
+
+                scoreShow();
+            } else {
+                // alert("localStorage.getItem() fail");
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+
+        initGame();
+
+        function initGame() {
+            if (timerId != null) {
+                clearInterval(timerId);
+                timerId = null;
+            }
+            timeMs = 0;
+
+            $("#tableId tr").remove();
+
+            var i, j;
+            var digit, digitMax;
+
+            // ==================================================
+            var digitMap = [];
+            digitMax = digitLast / 2;
+            for (i = 0; i < digitMax; i++)
+                digitMap[i] = 0;
+            for (i = 0; i < 5; i++) {
+                $("#tableId").append("<tr></tr>");
+                for (j = 0; j < 5; j++) {
+                    do {
+                        digit = Math.floor(Math.random() * digitMax + 1);
+                    } while (digitMap[digit - 1] != 0);
+                    digitMap[digit - 1]++;
+                    $(`#tableId tr:nth-child(${i + 1})`).append(
+                        `<td><button class="btnMy" value="${digit}" onclick="clickFun(this)">${digit}</td>`);
+                }
+            }
+            // ==================================================
+            // digit = 1;
+            // for (i = 0; i < 5; i++) {
+            //     $("#tableId").append("<tr></tr>");
+            //     for (j = 0; j < 5; j++) {
+            //         $(`#tableId tr:nth-child(${i + 1})`).append(
+            //             `<td><button class="btnMy" value="${digit}" onclick="clickFun(this)">${digit}</td>`);
+            //         digit++;
+            //     }
+            // }
+            // digitMax = digit - 1;
+            // ==================================================
+
+            digitClick = 0;
+            digitPlace = digitMax;
+
+            $("#countTime").html(Math.floor(timeMs / 1000).toString() + "." + ((timeMs % 1000) + 1000).toString()
+                .substr(1, 2));
+            $("#digitNext").html((digitClick + 1).toString());
+
+            $("#clockId").removeClass("fa-pulse");
+            $("#numId").removeClass("fa-spin");
+        }
+
+        function clickFun(obj) {
+            // console.log(obj); // <button class="btnMy" name="btn1_1" value="1" onclick="clickFun(this)">1</button>
+
+            // console.log(this); // window, not button
+
+            // console.log(event); // MouseEvent
+            // console.log(event.name); // undefined
+            // console.log(event.value); // undefined
+            // console.log(event.target.id); // null string --> no id in this tag
+            // console.log(event.target.name); // btn1_1
+            // console.log(event.target.value); // 1
+            // console.log(event.target.tagName); // BUTTON
+            // console.log(event.clientX); // 49, ...
+            // console.log(event.clientY); // 279, ...
+            // console.log(event.keyCode); // undefined --> mouse event without keyCode
+            console.log("event.target.value=" + event.target.value + ", digitLast=" + digitLast + ", digitPlace=" +
+                digitPlace + ", digitClick=" + digitClick);
+            if (event.target.value == (digitClick + 1)) {
+                digitClick++;
+                if (digitPlace >= digitLast) {
+                    $(obj).css("visibility", "hidden");
+                } else {
+                    digitPlace++;
+
+                    $(obj).fadeToggle(80);
+                    $(obj).html(digitPlace.toString());
+                    $(obj).prop("value", digitPlace.toString());
+                    $(obj).css("background-color", "rgb(45, 83, 150)");
+                    $(obj).fadeToggle(80);
+
+                    // $(obj).fadeToggle(5000);
+                    // setTimeout(fadeToggleTimeout, 50, obj, digitPlace.toString(), digitPlace.toString(), "rgb(45, 83, 150)");
+
+                    // wrong, fadeToggleTimeout() is not jquery api
+                    // $(obj).fadeToggle(500).fadeToggleTimeout(obj, digitPlace.toString(), digitPlace.toString(), "rgb(45, 83, 150)");
+
+                    // scoreSort();
+                }
+
+                if (digitClick < digitLast) {
+                    $("#digitNext").html((digitClick + 1).toString());
+                    if (timerId == null) {
+                        $("#clockId").toggleClass("fa-pulse");
+                        $("#numId").toggleClass("fa-spin");
+
+                        timerId = setInterval(timerFun, timerVal);
+                        timeMs = 0;
+                    }
+                } else {
+                    clearInterval(timerId);
+                    timerId = null;
+
+                    $("#clockId").removeClass("fa-pulse");
+                    $("#numId").removeClass("fa-spin");
+
+                    setTimeout(endGameTimeoutFun, 20);
+                }
+            } else {
+                // alert("error key");
+            }
+        }
+
+        function timerFun() {
+            $("#p1").html(window.innerWidth.toString() + "px * " + window.innerHeight.toString() + "px");
+
+            timeMs += timerVal;
+            $("#countTime").html(Math.floor(timeMs / 1000).toString() + "." +
+                ((timeMs % 1000) + 1000).toString().substr(1, 2));
+        }
+
+        function endGameTimeoutFun() {
+            scoreSort();
+            scoreShow();
+
+            $("#alertScore").empty();
+            $("#alertScore").append("遊戲進行時間&nbsp;&nbsp;" +
+                Math.floor(timeMs / 1000).toString() + "." + ((timeMs % 1000) + 1000).toString().substr(1, 2) +
+                "&nbsp;&nbsp;秒");
+            $('#modalEnd').modal('show');
+        }
+
+        function restartFun() {
+            initGame();
+        }
+
+        function fadeToggleTimeout(obj, htmlStr, valueStr, colorStr) {
+            console.log("+++");
+            $(obj).html(htmlStr);
+            $(obj).prop("value", valueStr);
+            $(obj).css("background-color", colorStr);
+            $(obj).fadeToggle(5000);
+        }
+
+        function scoreSort() {
+            var now = new Date();
+            console.log(now);
+
+            var listStr = "";
+            listStr += now.getFullYear().toString() + "/" +
+                (now.getMonth() + 1 + 100).toString().substr(1, 2) + "/" +
+                (now.getDate() + 100).toString().substr(1, 2) +
+                "<br>&nbsp;&nbsp;&nbsp;&nbsp;" +
+                (now.getHours() + 100).toString().substr(1, 2) + ":" +
+                (now.getMinutes() + 100).toString().substr(1, 2) + ":" +
+                (now.getSeconds() + 100).toString().substr(1, 2);
+
+            scoreList.push({
+                dateTime: listStr,
+                score: timeMs
+            });
+
+            scoreList.sort(function (a, b) {
+                return a.score - b.score;
+                // return b.score - a.score;
+            });
+        }
+
+        function scoreShow() {
+            console.log(scoreList.length);
+            console.log(scoreList);
+            console.log(JSON.stringify(scoreList));
+
+            // ==================================================
+            // $("#scoreList").empty();
+            // $("#scoreList2").empty();
+            // for (var i = 0; i < scoreList.length; i++) {
+            //     var str = "";
+            //     str = "<li>" + scoreList[i].dateTime + " --> " +
+            //         Math.floor(scoreList[i].score / 1000).toString() + "." +
+            //         ((scoreList[i].score % 1000) + 1000).toString().substr(1, 2) +
+            //         "  秒" + "</li>";
+            //     $("#scoreList").append(str);
+            //     $("#scoreList2").append(str);
+            // }
+            // ==================================================
+            $("#scoreTable").empty();
+            $("#scoreTable2").empty();
+            $("#scoreTable").append("<thead></thead>");
+            $("#scoreTable2").append("<thead></thead>");
+            $("#scoreTable").append("<tbody>");
+            $("#scoreTable2").append("<tbody>");
+            for (var i = 0; i < scoreList.length; i++) {
+                var str = "";
+                str = "<tr><td>" + scoreList[i].dateTime + "</td>" +
+                    "<td>" + Math.floor(scoreList[i].score / 1000).toString() + "." +
+                    ((scoreList[i].score % 1000) + 1000).toString().substr(1, 2) +
+                    "&nbsp;秒" + "</td></tr>";
+                $("#scoreTable").append(str);
+                $("#scoreTable2").append(str);
+            }
+            $("#scoreTable").append("</tbody>");
+            $("#scoreTable2").append("</tbody>");
+            // ==================================================
+
+            if (typeof (Storage) !== "undefined") {
+                console.log("setItem");
+                localStorage.setItem("scoreList", JSON.stringify(scoreList));
+            } else {
+                alert("Sorry, your browser does not support Web Storage...");
+            }
+        }
+
+        function bodyResizeFun() {
+            if (window.innerWidth < 576) {
+                $("#modalScoreId").html("歷史成績");
+            } else {
+                $("#modalScoreId").html("歷史成績");
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- This is an age test.
+Strongly recommend.
+
+Are you still young as far your eyes and memory is concerned!!
+
+Try to remove the numbers from 1 to 50 by touching on your screen in the "correct sequence" of 1 ??50
+Scoring:
+10. -19 secs : Impossible
+20-29 secs : Liar
+30-39 secs : you are special
+40-59 secs : Expert
+60-79 secs : Normal
+80-99 secs : you are getting old
+More than 100 sec. : you are old.
+
+Good luck ?? ????
+Dont forget to post your scores -->
+
+
+<!-- 1to50, Your score :
+
+58.352
+Try again! I think you can do it well! -->
